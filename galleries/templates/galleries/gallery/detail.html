@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="/static/galleries/fancybox/jquery.fancybox.css?v=2.1.4" media="screen" />
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" type="application/javascript">
+
+</script>
+{% endblock %}
+
+{% block content %}
+	{% if gallery %}
+		{% load thumbnail %}
+		{% with gallery.image_set.all as images %}
+			{% for image in images %}
+				<a class="gallery" rel="gallery_{{gallery.id}}" href="{{MEDIA_URL}}{{image.src}}">
+					{% thumbnail image.src gallery_thumb_size crop="center" as im %}
+						<img src="{{im.url}}" width="{{im.width}}" height="{{im.height}}"/>
+					{% endthumbnail %}
+				</a>
+			{% endfor %}
+		{% endwith %}
+	{% endif %}
+{% endblock %}
