@@ -17,7 +17,7 @@ class ImageInline(AdminImageMixin, admin.StackedInline):
         }),
         ('Attributes', {
             'classes' : ('collapse',),
-            'fields' : ('title', 'alt', 'description',)
+            'fields' : ('title', 'alt', 'caption',)
         })
     )
 
