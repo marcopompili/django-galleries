@@ -23,10 +23,10 @@ INSTALLED_APPS = (
 url(r'^galleries/', include('galleries.urls')),
 ```
 
-3. Run `python manage.py syncdb` to create the polls models.
+3. Run `python manage.py syncdb` to create the galleries models.
 
 4. Start the development server and visit http://127.0.0.1:8000/admin/
-   to create a poll (you'll need the Admin app enabled).
+   to create a gallery (you'll need the Admin app enabled).
 
 5. Visit http://127.0.0.1:8000/galleries/ to check the gallery list.
 
