@@ -5,6 +5,7 @@ Galleries is a simple Django app to manage image galleries.
 
 Requirements
 ------------
+- [Django >= 1.5](http://www.djangoproject.com)
 - [sorl-thumbnails](https://github.com/mariocesar/sorl-thumbnail)
 
 Quick start
