@@ -8,6 +8,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import ImageField
 
+from emarcs import utils
 
 class Gallery(models.Model):
     class Meta:
@@ -31,8 +32,9 @@ class Image(models.Model):
     title = models.CharField(_(u'Title'), max_length=75, blank=True, null=True, help_text=_('Value for the title attribute.'))
     alt = models.CharField(_(u'Alt'), max_length=50, blank=True, null=True, help_text=_('Value for the Alt attribute, useful if an image is not displayed.'))
     
-    caption = models.TextField(_('Caption'), max_length=250, blank=True, null=True, help_text=_('The description for this image, displayed usually under the image.'))
-    gallery = models.ForeignKey(Gallery, verbose_name=_('Gallery'))
+    caption = models.TextField(_(u'Caption'), max_length=250, blank=True, null=True, help_text=_('The description for this image, displayed usually under the image.'))
+    gallery = models.ForeignKey(Gallery, verbose_name=_(u'Gallery'))
+    as_cover = utils.models.UniqueBooleanField(_(u'Use as cover'), default=False)
     
     def __unicode__(self):
         return self.title if self.title else self.src
