@@ -5,3 +5,7 @@ local_settings.py
 
 .project
 .pydevproject
+.settings
+
+dist/
+django_galleries.egg-info
