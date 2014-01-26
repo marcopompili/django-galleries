@@ -13,7 +13,7 @@ class ImageInline(AdminImageMixin, admin.StackedInline):
     extra = 3
     fieldsets = (
         (None, {
-            'fields' : ('src', 'as_cover',)
+            'fields' : ('src',)
         }),
         ('Attributes', {
             'classes' : ('collapse',),
