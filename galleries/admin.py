@@ -5,10 +5,10 @@ Created on 18/mag/2013
 '''
 
 from django.contrib import admin
-from sorl.thumbnail.admin import AdminImageMixin
+from sorl.thumbnail.admin import AdminInlineImageMixin
 from .models import Image, Gallery
 
-class ImageInline(AdminImageMixin, admin.StackedInline):
+class ImageInline(AdminInlineImageMixin, admin.StackedInline):
     model = Image
     extra = 3
     fieldsets = (
