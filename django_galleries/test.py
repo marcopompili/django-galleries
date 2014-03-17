@@ -1,15 +1,15 @@
-'''
+"""
 Created on 10/giu/2013
 
 @author: Marco Pompili
-'''
+"""
+
 import unittest
 
 
 class Test(unittest.TestCase):
 
-
-    def testName(self):
+    def test_name(self):
         pass
 
 
