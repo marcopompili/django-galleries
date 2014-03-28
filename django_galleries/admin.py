@@ -6,15 +6,18 @@ Created on 18/mag/2013
 
 from django.contrib import admin
 from sorl.thumbnail.admin import AdminInlineImageMixin
+
 from .models import Image, Gallery
+from .forms import ImageForm
 
 
 class ImageInline(AdminInlineImageMixin, admin.StackedInline):
     model = Image
-    extra = 3
+    form = ImageForm
+    extra = 0
     fieldsets = (
         (None, {
-            'fields': ('src',)
+            'fields': ('src', 'as_cover',)
         }),
         ('Attributes', {
             'classes': ('collapse',),

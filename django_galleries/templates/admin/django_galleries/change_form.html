@@ -1,0 +1,50 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block content %}{{block.super}}
+<script type="text/javascript">
+    // Library function for getting vars from url
+    (function ($) {
+        $.extend({
+            /**
+             * @return {*}
+             */
+            requestVars: function () {
+                var vars = {},
+                rgx = /\??(\w+)=(\w+)&?/g;
+
+                while(urlVar = rgx.exec(window.location.href))
+                    vars[urlVar[1]] = urlVar[2];
+
+                return vars;
+            },
+            /**
+             *
+             * @param name
+             * @returns {*}
+             */
+            requestVar: function (name) {
+                return $.requestVars()[name];
+            }
+        });
+
+        /**
+         * Takes parameters from url and updates the form fields.
+         * @type {*}
+         */
+        $.each($.requestVars(), function(k, v) {
+            var fld = $('#' + k);
+            if(fld)
+                fld.val(v);
+        });
+
+        /**
+         * Allows only one image to be selected as cover.
+         */
+        $('.as_cover').click(function(e) {
+            var id = $(this).attr('id');
+            $('.as_cover').each(function(i) { if(id != $(this).attr('id')) $(this).removeAttr('checked'); });
+        });
+    })(django.jQuery);
+</script>
+{% endblock %}

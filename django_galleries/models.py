@@ -8,13 +8,11 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from sorl.thumbnail import ImageField
 
-#from emarcs import utils
-
 
 class Gallery(models.Model):
     class Meta:
-        verbose_name = _(u'gallery')
-        verbose_name_plural = _(u'django_galleries')
+        verbose_name = _(u'Gallery')
+        verbose_name_plural = _(u'Galleries')
 
     codename = models.CharField(max_length=25, unique=True, help_text=_(
         u'The codename is useful for the administration panel and for the slider tag.'))
@@ -31,15 +29,20 @@ class Image(models.Model):
         verbose_name_plural = _(u'images')
 
     src = ImageField(upload_to='images/', verbose_name=_(u'Image file'))
+
     title = models.CharField(_(u'Title'), max_length=75, blank=True, null=True,
                              help_text=_("Value for the title attribute."))
+
     alt = models.CharField(_(u'Alt'), max_length=50, blank=True, null=True,
                            help_text=_('Value for the "alt" attribute, useful if an image is not displayed.'))
 
     caption = models.TextField(_(u'Caption'), max_length=250, blank=True, null=True,
                                help_text=_("The description for this image, displayed usually under the image."))
+
     gallery = models.ForeignKey(Gallery, verbose_name=_(u'Gallery'))
-    #as_cover = utils.models.UniqueBooleanField(default=False, verbose_name=_(u"Use as cover"))
+
+    as_cover = models.NullBooleanField(_(u'Use as cover'), blank=True, null=True,
+                                       help_text=_(u"Use this image as the cover for this gallery."))
 
     def __unicode__(self):
         return self.title if self.title else self.src
