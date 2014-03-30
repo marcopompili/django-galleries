@@ -1,21 +1,29 @@
 django-galleries
 ================
 
-Galleries is a simple Django app to manage image galleries.
+Django Galleries is a simple django application to manage image galleries. Can be used with any another application, just bind the Gallery model with a foreign key to your application model. It uses the excellent sorl-thumbnail application for templating the images in the galleries.
+
+The administration interface should be compatible with most admin themes (admin-bootstrapped, grappelli etc), not completetly sure.
 
 Requirements
 ------------
 - [Django >= 1.5](http://www.djangoproject.com)
-- [sorl-thumbnails](https://github.com/mariocesar/sorl-thumbnail)
+- [sorl-thumbnails](https://github.com/mariocesar/sorl-thumbnail), check it out.
 
-Quick start
------------
+Installation
+------------
+This application can be installed using pip, cloning the repository locally and the using this command:
+```
+pip -e install django-galleries
+```
 
+Configuration
+-------------
 1. Add "galleries" to your INSTALLED_APPS setting like this:
 ```python
 INSTALLED_APPS = (
   ...
-  'galleries',
+  'django_galleries',
 )
 ```
 
@@ -36,13 +44,17 @@ url(r'^galleries/', include('galleries.urls')),
    to create a poll (you'll need the Admin app enabled).
 >>>>>>> a7916de... Update README.md
 
-5. Visit http://127.0.0.1:8000/galleries/ to check the gallery list.
+Settings
+--------
+settings.py parameters:
+```python
+GALLERY_THUMB_SIZE = '320x240'
+GALLERY_SLIDESHOW = True
+```
 
-
-Notes
-----
-Settings parameters:
-
-GALLERY_THUMB_SIZE
-
-GALLERY_SLIDESHOW
+You can also use some debugging with sorl-thumbnail like this:
+```python
+THUMBNAIL_DEBUG = True
+THUMBNAIL_COLORSPACE = None 
+THUMBNAIL_FORMAT = 'PNG'
+```
