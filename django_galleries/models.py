@@ -11,8 +11,8 @@ from sorl.thumbnail import ImageField
 
 class Gallery(models.Model):
     class Meta:
-        verbose_name = _(u'Gallery')
-        verbose_name_plural = _(u'Galleries')
+        verbose_name = _(u'gallery')
+        verbose_name_plural = _(u'galleries')
 
     codename = models.CharField(max_length=25, unique=True, help_text=_(
         u'The codename is useful for the administration panel and for the slider tag.'))

@@ -1,14 +1,7 @@
-{% extends 'base.html' %}
+{% load thumbnail %}
 
-{% block css %}
-{% endblock %}
-
-{% block js %}
-{% endblock %}
-
-{% block content %}
+{% block gallery %}
 	{% if gallery %}
-		{% load thumbnail %}
 		{% with gallery.image_set.all as images %}
 			{% for image in images %}
 				<a class="gallery" rel="gallery_{{gallery.id}}" href="{{MEDIA_URL}}{{image.src}}">
