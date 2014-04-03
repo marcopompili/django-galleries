@@ -19,10 +19,11 @@ pip -e install django-galleries
 
 Configuration
 -------------
-1. Add "galleries" to your INSTALLED_APPS setting like this:
+1. Add "galleries" to your INSTALLED_APPS setting like this (after sorl-thumbnails):
 ```python
 INSTALLED_APPS = (
   ...
+  'sorl-thumbnail',
   'django_galleries',
 )
 ```

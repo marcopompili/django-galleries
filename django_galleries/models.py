@@ -39,13 +39,13 @@ class Image(models.Model):
     src = ImageField(upload_to='images/', verbose_name=_(u'Image file'))
 
     title = models.CharField(_(u'Title'), max_length=75, blank=True, null=True,
-                             help_text=_("Value for the title attribute."))
+                             help_text=_(u"Value for the title attribute."))
 
     alt = models.CharField(_(u'Alt'), max_length=50, blank=True, null=True,
-                           help_text=_('Value for the "alt" attribute, useful if an image is not displayed.'))
+                           help_text=_(u'Value for the "alt" attribute, useful if an image is not displayed.'))
 
     caption = models.TextField(_(u'Caption'), max_length=250, blank=True, null=True,
-                               help_text=_("The description for this image, displayed usually under the image."))
+                               help_text=_(u"The description for this image, displayed usually under the image."))
 
     gallery = models.ForeignKey(Gallery, verbose_name=_(u'Gallery'))
 
