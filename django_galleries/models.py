@@ -10,6 +10,9 @@ from sorl.thumbnail import ImageField
 
 
 class Gallery(models.Model):
+    """
+        Gallery model for the Django Gallery application.
+    """
     class Meta:
         verbose_name = _(u'gallery')
         verbose_name_plural = _(u'galleries')
@@ -24,6 +27,11 @@ class Gallery(models.Model):
 
 
 class Image(models.Model):
+    """
+        Image mode for the Django Gallery application.
+        This model basically store al the attributes of an img tag
+        and add a few custom options like caption.
+    """
     class Meta:
         verbose_name = _(u'image')
         verbose_name_plural = _(u'images')
