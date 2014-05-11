@@ -11,7 +11,7 @@
              */
             requestVars: function () {
                 var vars = {},
-                rgx = /\??(\w+)=(\w+)&?/g;
+                rgx = /\??(\w+)=(\w+-?\w+)&?/g;
 
                 while(urlVar = rgx.exec(window.location.href))
                     vars[urlVar[1]] = urlVar[2];
